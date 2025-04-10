@@ -15,3 +15,15 @@ UDAY (उदय) – India's Open-Source Cloud Collaboration Platform
 - Promote local innovation through open-source collaboration.
 - Offer a free, privacy-focused alternative to commercial cloud platforms.
 - Enable educational institutions and startups to collaborate seamlessly.
+
+---
+
+## ✨ Features
+
+- 🗂️ File Sharing & Storage  
+- 👥 Real-Time Collaboration  
+- 🔒 End-to-End Encryption  
+- 🌐 Accessible Anywhere  
+- 📁 Folder Management System  
+- 📊 Usage Analytics for Admins  
+- ☁️ Open Source & Community Driven
