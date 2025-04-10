@@ -27,3 +27,14 @@ UDAY (उदय) – India's Open-Source Cloud Collaboration Platform
 - 📁 Folder Management System  
 - 📊 Usage Analytics for Admins  
 - ☁️ Open Source & Community Driven
+
+---
+
+## 🛠 Tech Stack
+
+- 🌐 Frontend: HTML, CSS, JavaScript  
+- 🧠 Backend: Node.js (Express)  
+- ☁️ Cloud Platform: AWS / Azure / GCP (can be specified later)  
+- 🗃️ Database: MongoDB / PostgreSQL  
+- 🔐 Authentication: JWT / OAuth  
+- 💻 Dev Tools: Git, GitHub, VS Code
