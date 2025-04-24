@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>UDAY Cloud Dashboard</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 min-h-screen flex flex-col items-center justify-start px-6 pt-10 text-center">
+
+  <!-- Navigation Bar -->
+  <nav class="mb-8 text-sm text-blue-700 space-x-4">
+    <a href="/">Home</a>
+    <a href="/team">Team</a>
+    <a href="/about">About</a>
+    <a href="/join">Join Us</a>
+    <button onclick="logout()" class="text-red-500 hover:underline">Logout</button>
+  </nav>
+
+  <!-- Main Dashboard Container -->
+  <div class="bg-white shadow-lg rounded-lg p-8 w-full max-w-xl animate-fadeInUp">
+    <h1 class="text-3xl font-bold text-blue-600 mb-4">☁️ Welcome to Your UDAY Dashboard</h1>
+    <p class="text-gray-700 mb-6">Upload and manage your files in the cloud.</p>
+
+    <!-- ✅ File Upload Form -->
+    <form id="uploadForm" enctype="multipart/form-data" class="flex flex-col items-center space-y-4">
+      <input type="file" name="file" required class="w-full p-2 border rounded" />
+      <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition">
+        Upload File
+      </button>
+    </form>
+
+    <!-- 🗂️ Display uploaded file list (next step) -->
+    <div id="fileList" class="mt-8 text-left w-full">
+      <h2 class="text-lg font-semibold mb-2">Your Files:</h2>
+      <ul id="files" class="list-disc list-inside text-sm text-gray-600">
+        <!-- File names will be added here by JavaScript -->
+      </ul>
+    </div>
+  </div>
+
+  <!-- ✅ Token Check & Logout Script -->
+  <script>
+    const token = localStorage.getItem('token');
+
+    // Redirect to login if no token
+    if (!token) {
+      alert("You're not logged in. Redirecting...");
+      window.location.href = "/login";
+    }
+
+    function logout() {
+      localStorage.removeItem("token");
+      alert("You've been logged out.");
+      window.location.href = "/login";
+    }
+
+    // File upload submission (we'll build backend next)
+    document.getElementById('uploadForm').addEventListener('submit', async function (e) {
+      e.preventDefault();
+      const formData = new FormData(this);
+
+      const res = await fetch('/upload', {
+        method: 'POST',
+        headers: {
+          Authorization: 'Bearer ' + token
+        },
+        body: formData
+      });
+
+      if (res.ok) {
+        alert("File uploaded successfully!");
+        this.reset(); // Clear form
+        // TODO: Load uploaded files list
+      } else {
+        alert("Upload failed.");
+      }
+    });
+  </script>
+
+</body>
+</html>

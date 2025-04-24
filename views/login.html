@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login - UDAY Cloud</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center px-4">
+
+  <form id="loginForm" class="bg-white p-6 rounded shadow-md w-full max-w-md">
+    <h2 class="text-2xl font-bold mb-4 text-center text-blue-700">Login to UDAY</h2>
+
+    <label class="block mb-2 text-sm font-medium text-gray-700">Username</label>
+    <input type="text" id="username" required class="w-full p-2 border rounded mb-4"/>
+
+    <label class="block mb-2 text-sm font-medium text-gray-700">Password</label>
+    <input type="password" id="password" required class="w-full p-2 border rounded mb-4"/>
+
+    <button type="submit" class="w-full bg-blue-600 text-white p-2 rounded hover:bg-blue-700">Login</button>
+
+    <p class="text-center text-sm text-gray-500 mt-4">Don’t have an account? <a href="/signup" class="text-blue-600">Sign Up</a></p>
+
+    <p id="error" class="text-center text-red-500 mt-2 hidden">Invalid credentials. Please try again.</p>
+  </form>
+
+  <script>
+    const form = document.getElementById('loginForm');
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+
+      const res = await fetch('/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ username, password })
+      });
+
+      if (res.ok) {
+        const data = await res.json();
+        localStorage.setItem('token', data.token); // ✅ Store token locally
+        window.location.href = '/dashboard'; // ✅ Redirect to dashboard
+      } else {
+        document.getElementById('error').classList.remove('hidden');
+      }
+    });
+  </script>
+
+</body>
+</html>
+
+

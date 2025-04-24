@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>UDAY Cloud ☁️</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          animation: {
+            fadeInUp: 'fadeInUp 0.8s ease-out both',
+          },
+          keyframes: {
+            fadeInUp: {
+              '0%': { opacity: 0, transform: 'translateY(20px)' },
+              '100%': { opacity: 1, transform: 'translateY(0)' },
+            },
+          },
+        },
+      }
+    }
+  </script>
+</head>
+
+<body class="relative bg-gradient-to-br from-blue-100 via-white to-blue-50 min-h-screen flex items-center justify-center px-4 overflow-hidden">
+
+  <!-- Subtle Tech Pattern Background -->
+  <div class="absolute inset-0 z-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 bg-repeat"></div>
+
+  <!-- Main Content (with fade animation) -->
+  <div class="relative z-10 text-center animate-fadeInUp duration-700 transition-all ease-in-out transform">
+
+    <!-- Logo Section -->
+    <img src="/images/uday-logo.png"
+         alt="UDAY Logo"
+         class="mx-auto h-24 mb-6 shadow-lg rounded-full border border-gray-300 bg-white p-3" />
+
+    <!-- Welcome Message -->
+    <h1 class="text-4xl md:text-5xl font-extrabold text-blue-700 mb-4">Welcome to UDAY ☀️</h1>
+    <p class="text-gray-600 text-lg mb-6 max-w-xl mx-auto">
+      Your free, personal cloud platform for secure file storage and digital freedom.
+    </p>
+
+    <!-- Buttons -->
+    <div class="space-x-4">
+      <a href="/signup" class="bg-blue-600 text-white px-6 py-3 rounded-lg shadow hover:bg-blue-700 transition">
+        Sign Up
+      </a>
+      <a href="/login" class="bg-gray-100 text-blue-700 px-6 py-3 rounded-lg shadow hover:bg-gray-200 transition">
+        Login
+      </a>
+    </div>
+
+    <!-- Footer -->
+    <footer class="mt-10 text-sm text-gray-400">
+      Powered by Node.js + Express | Made with ❤️ by Uday
+    </footer>
+  </div>
+
+</body>
+</html>
