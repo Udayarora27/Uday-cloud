@@ -1,5 +1,4 @@
 # Sensitive files to ignore
-users.json
 .env
 
 # User uploads (if any)
